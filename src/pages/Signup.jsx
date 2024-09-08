@@ -5,7 +5,7 @@ const Signup = () => {
   return (
     <div>
       <h1 className="flex justify-center">회원가입</h1>
-      <AuthForm />
+      <AuthForm mode="signup" />
     </div>
   );
 };
