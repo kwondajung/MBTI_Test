@@ -10,6 +10,9 @@
     @apply text-base/loose;
   }
   button {
-    @apply bg-slate-300 text-white px-4 py-2 mr-2;
+    @apply bg-slate-300 text-white px-4 py-2 mr-2 my-6;
+  }
+  input {
+    @apply w-96 py-2 my-2 border-b;
   }
 }
