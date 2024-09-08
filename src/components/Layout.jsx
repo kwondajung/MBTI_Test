@@ -4,7 +4,7 @@ import { MbtiContext } from '../context/MbtiContext';
 
 const Layout = ({ children }) => {
   const { user, setUser } = useContext(MbtiContext);
-
+  console.log(user); // undefined 뜸
   // TODO: 로그인하지 않은 사용자 login 페이지로 이동
   useEffect(() => {}, []);
   return (

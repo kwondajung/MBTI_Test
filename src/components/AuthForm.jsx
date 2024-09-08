@@ -6,6 +6,7 @@ const AuthForm = ({ mode, onSubmit }) => {
   const [password, setPassword] = useState('');
   const [nickname, setNickname] = useState('');
 
+  // 회원가입
   const handleSignUp = (e) => {
     e.preventDefault();
 
@@ -16,6 +17,7 @@ const AuthForm = ({ mode, onSubmit }) => {
     });
   };
 
+  // 로그인
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -27,7 +29,6 @@ const AuthForm = ({ mode, onSubmit }) => {
 
   return (
     <>
-      {/* <div className="w-2/3 flex flex-col justify-center items-center"> */}
       <div>
         <form
           onSubmit={mode === 'login' ? handleLogin : handleSignUp}
@@ -41,7 +42,7 @@ const AuthForm = ({ mode, onSubmit }) => {
             onChange={(e) => {
               setId(e.target.value);
             }}
-            // required
+            required
           />
           <input
             type="password"
@@ -51,7 +52,7 @@ const AuthForm = ({ mode, onSubmit }) => {
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-            // required
+            required
           />
           {mode === 'signup' && (
             <input
@@ -62,7 +63,7 @@ const AuthForm = ({ mode, onSubmit }) => {
               onChange={(e) => {
                 setNickname(e.target.value);
               }}
-              // required
+              required
             />
           )}
           <button className="w-96" type="submit">
