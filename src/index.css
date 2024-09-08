@@ -1,3 +1,15 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-3xl/loose font-bold;
+  }
+  p {
+    @apply text-base/loose;
+  }
+  button {
+    @apply bg-slate-300 text-white px-4 py-2 mr-2;
+  }
+}

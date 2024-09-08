@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       <header>
-        <nav>
+        <nav className="flex justify-between items-center px-5 py-7 bg-gray-200">
           <Link to="/">홈</Link>
           <div className="space-x-4">
             {user ? (
@@ -18,7 +18,10 @@ const Layout = ({ children }) => {
                 <button>로그아웃</button>
               </>
             ) : (
-              <Link to="/login">로그인</Link>
+              <>
+                <Link to="/login">로그인</Link>
+                <Link to="/signup">회원가입</Link>
+              </>
             )}
           </div>
         </nav>
