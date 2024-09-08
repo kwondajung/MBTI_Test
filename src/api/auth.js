@@ -4,15 +4,17 @@ const API_URL = 'https://moneyfulpublicpolicy.co.kr';
 
 // 회원가입
 export const register = async (userData) => {
-  console.log(userData);
+  console.log('회원가입 확인 => ', userData);
 
   const response = await axios.post(`${API_URL}/register`, userData);
   return response.data;
 };
 // 로그인
 export const login = async (userData) => {
-  // const response = await axios.post(`${API_URL}/login`, userData);
-  // return response.data;
+  console.log('로그인 확인 => ', userData);
+
+  const response = await axios.post(`${API_URL}/login`, userData);
+  return response.data;
 };
 
 // 마이페이지

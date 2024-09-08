@@ -2,7 +2,7 @@ import React from 'react';
 import AuthForm from '../components/AuthForm';
 
 const Login = () => {
-  const handleLogin = async (formData) => {};
+  const handleLogin = async () => {};
   return (
     <div>
       <h1 className="flex justify-center">로그인</h1>

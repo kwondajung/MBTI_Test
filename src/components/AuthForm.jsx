@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import { register } from '../api/auth';
+import { login, register } from '../api/auth';
 
 const AuthForm = ({ mode, onSubmit }) => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [nickname, setNickname] = useState('');
-  // const [formData, setFormData] = useState({
-  //   id: '',
-  //   password: '',
-  //   nickname: '',
-  // });
 
-  const handleSubmit = async (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
+
     register({
       id,
       password,
@@ -20,11 +16,23 @@ const AuthForm = ({ mode, onSubmit }) => {
     });
   };
 
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    login({
+      id,
+      password,
+    });
+  };
+
   return (
     <>
       {/* <div className="w-2/3 flex flex-col justify-center items-center"> */}
       <div>
-        <form onSubmit={handleSubmit} className="my-8 grid place-items-center">
+        <form
+          onSubmit={mode === 'login' ? handleLogin : handleSignUp}
+          className="my-8 grid place-items-center"
+        >
           <input
             type="text"
             placeholder="아이디를 입력해주세요"
@@ -33,7 +41,7 @@ const AuthForm = ({ mode, onSubmit }) => {
             onChange={(e) => {
               setId(e.target.value);
             }}
-            required
+            // required
           />
           <input
             type="password"
@@ -43,7 +51,7 @@ const AuthForm = ({ mode, onSubmit }) => {
             onChange={(e) => {
               setPassword(e.target.value);
             }}
-            required
+            // required
           />
           {mode === 'signup' && (
             <input
@@ -54,7 +62,7 @@ const AuthForm = ({ mode, onSubmit }) => {
               onChange={(e) => {
                 setNickname(e.target.value);
               }}
-              required
+              // required
             />
           )}
           <button className="w-96" type="submit">
