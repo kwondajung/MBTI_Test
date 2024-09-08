@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { register } from '../api/auth';
 
 const AuthForm = ({ mode, onSubmit }) => {
-  const handleChange = (e) => {
-    e.prevenDefault();
-  };
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const [nickname, setNickname] = useState('');
+  // const [formData, setFormData] = useState({
+  //   id: '',
+  //   password: '',
+  //   nickname: '',
+  // });
 
-  const handleSubmit = (e) => {
-    e.prevenDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    register({
+      id,
+      password,
+      nickname,
+    });
   };
 
   return (
@@ -18,16 +29,20 @@ const AuthForm = ({ mode, onSubmit }) => {
             type="text"
             placeholder="아이디를 입력해주세요"
             name="id"
-            value={FormData.id}
-            onChange={handleChange}
+            value={id}
+            onChange={(e) => {
+              setId(e.target.value);
+            }}
             required
           />
           <input
             type="password"
             placeholder="비밀번호를 입력해주세요"
             name="password"
-            value={FormData.password}
-            onChange={handleChange}
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
             required
           />
           {mode === 'signup' && (
@@ -35,8 +50,10 @@ const AuthForm = ({ mode, onSubmit }) => {
               type="text"
               placeholder="닉네임을 입력해주세요"
               name="nickname"
-              value={FormData.nickname}
-              onChange={handleChange}
+              value={nickname}
+              onChange={(e) => {
+                setNickname(e.target.value);
+              }}
               required
             />
           )}
