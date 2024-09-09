@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { login, register } from '../api/auth';
+import { MbtiContext } from '../context/MbtiContext';
+import { useNavigate } from 'react-router-dom';
 
 const AuthForm = ({ mode, onSubmit }) => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [nickname, setNickname] = useState('');
+
+  const { user, setUser, isLogin, setIsLogin } = useContext(MbtiContext);
+  const navigate = useNavigate();
 
   // 회원가입
   const handleSignUp = (e) => {
@@ -18,13 +23,20 @@ const AuthForm = ({ mode, onSubmit }) => {
   };
 
   // 로그인
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    login({
+    const user = await login({
       id,
       password,
     });
+    // console.log(user);
+    // 토큰을 로컬스토리지에 저장
+    localStorage.setItem('accessToken', user.accessToken);
+
+    // 컨텍스트 중에 isLogin을 true
+    setIsLogin(true);
+    navigate('/');
   };
 
   return (

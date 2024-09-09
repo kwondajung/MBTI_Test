@@ -14,7 +14,7 @@ export const login = async (userData) => {
   console.log('로그인 확인 => ', userData);
 
   const response = await axios.post(`${API_URL}/login`, userData);
-  return response.data;
+  return response.data; // 로그인 성공 여부 보냄
 };
 
 // 마이페이지

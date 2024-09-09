@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AuthForm from '../components/AuthForm';
+import { MbtiContext } from '../context/MbtiContext';
 
 const Login = () => {
+  // const { user, setUser } = useContext(MbtiContext);
+
   const handleLogin = async () => {};
   return (
     <div>
