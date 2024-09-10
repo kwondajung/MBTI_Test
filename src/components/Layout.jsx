@@ -7,6 +7,16 @@ const Layout = ({ children }) => {
 
   console.log('user 확인 => ', user); // undefined 뜸
 
+  const handleLogout = () => {
+    setUser({
+      accessToken: '',
+      avatar: null,
+      nickname: '',
+      success: false,
+      userId: '',
+    });
+  };
+
   return (
     <div>
       <header>
@@ -16,19 +26,7 @@ const Layout = ({ children }) => {
             {user.success ? (
               <>
                 <Link to="/profile">마이페이지</Link>
-                <button
-                  onClick={() => {
-                    setUser({
-                      accessToken: '',
-                      avatar: null,
-                      nickname: '',
-                      success: false,
-                      userId: '',
-                    });
-                  }}
-                >
-                  로그아웃
-                </button>
+                <button onClick={handleLogout}>로그아웃</button>
               </>
             ) : (
               <>

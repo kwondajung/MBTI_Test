@@ -21,15 +21,28 @@ export const login = async (userData) => {
 };
 
 // 마이페이지
-export const getUserProfile = async (token) => {
+export const getUserProfile = async (accessToken) => {
+  // console.log('이게 진짜', accessToken);
   const response = await axios.get(`${API_URL}/user`, {
+    // 헤더스는 한 번 잡아놓으면 호출 시 중복해서 안 써도 됨
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${accessToken}`,
     },
   });
   return response.data;
 };
 
 // 마이페이지 수정
-export const updateProfile = async (FormData) => {};
+export const updateProfile = async (accessToken, nickname) => {
+  const formData = new FormData();
+  formData.append('nickname', nickname);
+
+  const response = await axios.patch(`${API_URL}/profile`, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  return response.data;
+};

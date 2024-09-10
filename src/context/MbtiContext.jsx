@@ -7,8 +7,6 @@ export const MbtiContext = createContext(null);
 // const token = localStorage.getItem('accessToken');
 
 export const MbtiProvider = ({ children }) => {
-  const [isLogin, setIsLogin] = useState(false);
-
   const [user, setUser] = useState({
     accessToken: '',
     avatar: null,
@@ -18,7 +16,7 @@ export const MbtiProvider = ({ children }) => {
   });
 
   return (
-    <MbtiContext.Provider value={{ user, setUser, isLogin, setIsLogin }}>
+    <MbtiContext.Provider value={{ user, setUser }}>
       {children}
     </MbtiContext.Provider>
   );

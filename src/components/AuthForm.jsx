@@ -15,6 +15,7 @@ const AuthForm = ({ mode, onSubmit }) => {
   const handleSignUp = (e) => {
     e.preventDefault();
 
+    // 요청
     register({
       id,
       password,

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
+import { MbtiContext } from '../context/MbtiContext';
 
-const ProtectedRoute = ({ user, children }) => {
-  if (!user.success) {
+const ProtectedRoute = ({ children }) => {
+  const { user, setUser } = useContext(MbtiContext);
+
+  if (!user) {
     return <Navigate to="/login" />;
   }
 
