@@ -3,8 +3,8 @@ import AuthForm from '../components/AuthForm';
 import { MbtiContext } from '../context/MbtiContext';
 
 const Login = () => {
-  // const { user, setUser } = useContext(MbtiContext);
-
+  const { user, setUser } = useContext(MbtiContext);
+  console.log('user 확인 => ', user);
   const handleLogin = async () => {};
   return (
     <div>

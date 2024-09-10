@@ -26,16 +26,18 @@ const AuthForm = ({ mode, onSubmit }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    const user = await login({
+    // login에는 auth에서 설계한 로그인 로직의 response.data가 담겨있음
+    const userInfo = await login({
       id,
       password,
     });
-    // console.log(user);
     // 토큰을 로컬스토리지에 저장
-    localStorage.setItem('accessToken', user.accessToken);
+    // localStorage.setItem('accessToken', userInfo.accessToken);
 
-    // 컨텍스트 중에 isLogin을 true
-    setIsLogin(true);
+    // console.log('유저 토큰 => ', userInfo.accessToken);
+    // console.log('닉넴 => ', userInfo.nickname);
+
+    setUser(userInfo);
     navigate('/');
   };
 
