@@ -35,6 +35,9 @@ const Profile = () => {
     const updateUserData = await updateProfile(user.accessToken, nickname);
     console.log(updateUserData);
 
+    // 업데이트를 하려고하는 값(이전값)
+    // 업데이트를 하기 이전의 user의 data = prev
+    // 반환값에 이전값, 다음에 설정할 값
     setUser((prev) => {
       return {
         ...prev,

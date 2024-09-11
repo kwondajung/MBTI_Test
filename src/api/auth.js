@@ -25,6 +25,7 @@ export const getUserProfile = async (accessToken) => {
   // console.log('이게 진짜', accessToken);
   const response = await axios.get(`${API_URL}/user`, {
     // 헤더스는 한 번 잡아놓으면 호출 시 중복해서 안 써도 됨
+    // 헤더는 정해진 규약이기 때문에 이대로 요청을 해야 서버에서 받아줌
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${accessToken}`,
