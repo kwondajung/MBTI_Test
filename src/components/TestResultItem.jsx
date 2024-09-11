@@ -24,13 +24,13 @@ const mbtiDescriptions = {
 };
 
 const TestResultItem = ({ result, user, onUpdate, onDelete }) => {
-  const isOwner = result.userId === user.id;
-
+  const isOwner = result.userId === user.userId;
+  // console.log(user);
   const formattedDate = new Date(result.date).toLocaleString();
   const description =
     mbtiDescriptions[result.result] || 'MBTI 유형 설명을 찾을 수 없습니다.';
 
-  const handleToggleVisibility = async () => {
+  const handleToggleVisibility = async (id, visibility) => {
     try {
       const newVisibility = !result.visibility;
       await updateTestResultVisibility(result.id, newVisibility);
@@ -59,7 +59,7 @@ const TestResultItem = ({ result, user, onUpdate, onDelete }) => {
       </div>
       <p className="text-2xl font-bold text-yellow-400 mb-4">{result.result}</p>
       <p className="text-base text-gray-300 mb-4">{description}</p>
-      {isOwner && (
+      {isOwner ? (
         <div className="flex justify-end space-x-4">
           <button
             onClick={handleToggleVisibility}
@@ -74,6 +74,8 @@ const TestResultItem = ({ result, user, onUpdate, onDelete }) => {
             삭제
           </button>
         </div>
+      ) : (
+        ''
       )}
     </div>
   );
