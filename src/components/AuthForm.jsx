@@ -50,6 +50,7 @@ const AuthForm = ({ mode, onSubmit }) => {
           className="my-8 grid place-items-center"
         >
           <input
+            className=" w-96 py-2 my-2 border-b p-2"
             type="text"
             placeholder="아이디를 입력해주세요"
             name="id"
@@ -60,6 +61,7 @@ const AuthForm = ({ mode, onSubmit }) => {
             required
           />
           <input
+            className=" w-96 py-2 my-2 border-b p-2"
             type="password"
             placeholder="비밀번호를 입력해주세요"
             name="password"
@@ -71,6 +73,7 @@ const AuthForm = ({ mode, onSubmit }) => {
           />
           {mode === 'signup' && (
             <input
+              className=" w-96 py-2 my-2 border-b p-2"
               type="text"
               placeholder="닉네임을 입력해주세요"
               name="nickname"

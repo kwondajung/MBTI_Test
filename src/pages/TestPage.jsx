@@ -10,33 +10,8 @@ const TestPage = () => {
   const navigate = useNavigate();
   console.log(user);
 
-  // const dummyAnswer = [
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  //   '네',
-  // ];
   const handleTestSubmit = async (answers) => {
     const result = calculateMBTI(answers);
-
-    // console.log('엔써', dummyAnswer);
-    // const result = calculateMBTI(dummyAnswer);
 
     console.log('결과', result);
 

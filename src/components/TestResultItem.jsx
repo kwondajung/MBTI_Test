@@ -25,12 +25,12 @@ const mbtiDescriptions = {
 
 const TestResultItem = ({ result, user, onUpdate, onDelete }) => {
   const isOwner = result.userId === user.userId;
-  // console.log(user);
+
   const formattedDate = new Date(result.date).toLocaleString();
   const description =
     mbtiDescriptions[result.result] || 'MBTI 유형 설명을 찾을 수 없습니다.';
 
-  const handleToggleVisibility = async (id, visibility) => {
+  const handleToggleVisibility = async () => {
     try {
       const newVisibility = !result.visibility;
       await updateTestResultVisibility(result.id, newVisibility);

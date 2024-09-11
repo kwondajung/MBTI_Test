@@ -9,7 +9,7 @@ export const getTestResults = async () => {
   return response.data;
 };
 
-// TODO: 함수 작성: post 요청을 안 했었음;;
+// NOTE: 함수 작성: post 요청을 안 했었음;;
 // resultData 이걸 테스트 페이지에서 받아옴
 // db에 resultData를 포스트함
 // 인자가 있으면 무조건 실행할 때 인자를 넘겨줘야 함
@@ -24,10 +24,12 @@ export const createTestResult = async (resultData) => {
 export const deleteTestResult = async (id) => {
   const response = await axios.delete(`${API_URL}/${id}`);
 
-  return response;
+  return response.data;
 };
 
 export const updateTestResultVisibility = async (id, visibility) => {
-  const response = await axios.fetch(`${API_URL}/${id}`, visibility);
-  return response;
+  const response = await axios.patch(`${API_URL}/${id}`, {
+    visibility,
+  });
+  return response.data;
 };
