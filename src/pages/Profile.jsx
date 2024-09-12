@@ -8,11 +8,9 @@ const Profile = () => {
 
   const [userData, setUserData] = useState();
 
-  const accessToken = user?.accessToken;
-  // console.log('프로필 토큰', accessToken);
+  // const accessToken = user?.accessToken;
 
   // aysnc는 useEffect 내에서 쓸 수 없음
-
   useEffect(() => {
     // console.log('테스트');
     fetchUserProfile();
